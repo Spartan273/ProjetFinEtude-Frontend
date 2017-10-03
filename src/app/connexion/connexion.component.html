@@ -1,0 +1,25 @@
+
+
+<h2 class="center">Inscription</h2>
+
+
+<div class="container">
+
+    <div class="row">
+        <form (ngSubmit)="onSignin(f)" #f="ngForm" class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="courriel" name="courriel" type="email" ngModel class="validate">
+              <label for="courriel">Courriel</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="password" name="password" type="password" ngModel class="validate">
+              <label for="password">Mot de passe</label>
+            </div>
+          </div>
+          <button type="submit">Se connecter</button>
+        </form>
+      </div>
+
+
+</div>
