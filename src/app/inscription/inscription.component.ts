@@ -9,6 +9,7 @@ import { FormArrayName } from '@angular/forms';
 import { FormControl } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { AbstractControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inscription',
@@ -17,7 +18,7 @@ import { AbstractControl } from '@angular/forms';
 })
 export class InscriptionComponent implements OnInit {
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private router: Router) {
 
   }
 
@@ -32,6 +33,9 @@ export class InscriptionComponent implements OnInit {
       response => console.log(response),
       error => console.log(error)
     );
+
+
+    this.router.navigate(['/signin']);
 
   }
 

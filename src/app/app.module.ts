@@ -20,13 +20,19 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
+import { ParallaxComponent } from './parallax/parallax.component';
+import { NavbarLoginComponent } from './navbar-login/navbar-login.component';
+import { AccueilComponent } from './accueil/accueil.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     ConnexionComponent,
-    InscriptionComponent
+    InscriptionComponent,
+    ParallaxComponent,
+    NavbarLoginComponent,
+    AccueilComponent
   ],
   imports: [
     BrowserModule,

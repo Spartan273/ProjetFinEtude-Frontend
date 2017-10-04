@@ -1,12 +1,15 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
+import { Router } from '@angular/router';
+import { EventEmitter } from '@angular/core';
 import 'rxjs/Rx';
 
 @Injectable()
 export class AuthService {
+  @Output() getLoggedName: EventEmitter<any> = new EventEmitter();
 
-  constructor(private http: Http) {}
+  constructor(private http: Http, private router: Router) {}
 
   singup(prenom: string, nom: string, courriel: string, password: string, noCivic: string,
   photo: string, app: string, rue: string, codePostal: string, ville: string, province: string ) {
@@ -15,6 +18,8 @@ export class AuthService {
   password: password, photo: photo, noCivic: noCivic, app: app, rue: rue, codePostal: codePostal,
   ville: ville, province: province},
   {headers: new Headers({'X-Requested-With': 'XMLHttpRequest', 'Content-Type': 'application/json'  })});
+
+
  // const headers = new Headers({'Content-Type': 'application/json'});
 
   }
@@ -26,15 +31,31 @@ export class AuthService {
    .map(
      (response: Response) => {
        const token = response.json().token;
+       const membre = response.json().membre;
+       const code = response.status;
+       console.log(code);
        const base64Url = token.split('.')[1];
        const base64 = base64Url.replace('-', '+').replace('_', '/');
-      return { token: token, decoded: JSON.parse(window.atob(base64))};
+      return { token: token, decoded: JSON.parse(window.atob(base64)), membre };
      }
    )
    .do(tokenData => {
      localStorage.setItem('token', tokenData.token);
+     localStorage.setItem('nom', tokenData.membre[0].nom);
+     localStorage.setItem('prenom', tokenData.membre[0].prenom);
+     localStorage.setItem('courriel', tokenData.membre[0].courriel);
+     this.getLoggedName.emit('bob');
+     this.router.navigate(['/home']);
    }
    );
+  }
+
+  // deconnexion
+  logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('nom');
+    localStorage.removeItem('prenom');
+    localStorage.removeItem('courriel');
   }
 
   getToken() {
