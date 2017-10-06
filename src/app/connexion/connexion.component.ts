@@ -16,6 +16,7 @@ export class ConnexionComponent implements OnInit {
   constructor(private authService: AuthService, private navBarSerive: NavBarService) { }
 
   ngOnInit() {
+
   }
 
   onSignin(form: NgForm) {
