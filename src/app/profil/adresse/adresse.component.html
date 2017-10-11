@@ -1,0 +1,93 @@
+
+<div class="container">
+
+<h3 class="center">Mon profil</h3>
+
+<!--<table class="centered" *ngIf="membre">
+  <thead>
+    <tr>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Courriel</th>
+        <th>Rue</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>{{membre.nom}}</td>
+      <td>{{membre.prenom}}</td>
+      <td>{{membre.courriel}}</td>
+      <td>{{membre.adresses.rue}}</td>
+    </tr>
+  </tbody>
+</table>-->
+
+<md-accordion class="example-headers-align">
+<md-expansion-panel *ngIf="membre">
+  <md-expansion-panel-header>
+    <md-panel-title>
+      Renseignements personnels
+    </md-panel-title>
+    <md-panel-description>
+      Nom et courriel
+      <md-icon>account_circle</md-icon>
+    </md-panel-description>
+  </md-expansion-panel-header>
+
+  <form #profilForm="ngForm">
+      <label for="nom">Nom</label>
+      <input id="nom" [(ngModel)]="membre.nom" name="nom" #nom="ngModel" type="text">
+
+      <label for="prenom">Prénom</label>
+      <input id="prenom" [(ngModel)]="membre.prenom" name="prenom" #prenom="ngModel" type="text">
+
+      <label for="courriel">Courriel</label>
+      <input id="courriel" [(ngModel)]="membre.courriel" name="courriel" #courriel="ngModel" type="text">
+  </form>
+</md-expansion-panel>
+
+<md-expansion-panel *ngIf="membre">
+    <md-expansion-panel-header>
+      <md-panel-title>
+        Adresse
+      </md-panel-title>
+      <md-panel-description>
+        Votre lieu de résidence
+        <md-icon>home_circle</md-icon>
+      </md-panel-description>
+    </md-expansion-panel-header>
+
+    <form #adresseForm="ngForm" (ngSubmit)="submit(adresseForm)">
+        <label for="noCivic">Numéro civique</label>
+        <input id="noCivic" [(ngModel)]="membre.adresses.noCivic" name="noCivic" #noCivic="ngModel" type="text">
+
+        <label for="app">Appartement</label>
+        <input id="app" [(ngModel)]="membre.adresses.app"  name="app" #app="ngModel" type="text">
+
+        <label for="rue">Rue</label>
+        <input id="rue" [(ngModel)]="membre.adresses.rue" name="rue" #rue="ngModel" type="text">
+
+        <label for="codePostal">Rue</label>
+        <input id="codePostal" [(ngModel)]="membre.adresses.codePostal" name="codePostal" #codePostal="ngModel" type="text">
+
+        <label for="ville">Ville</label>
+        <input id="ville" [(ngModel)]="membre.adresses.ville" name="ville" #ville="ngModel" type="text">
+
+        <label for="province">Province</label>
+        <input id="province" [(ngModel)]="membre.adresses.province" name="province" #province="ngModel" type="text">
+    </form>
+
+
+
+  </md-expansion-panel>
+</md-accordion>
+
+  <br>
+  <div class="center">
+      <button (click)="submit()" class="btn waves-effect waves-light light-green accent-3">Enregistrer
+        <i class="material-icons right">send</i>
+      </button>
+  </div>
+<br>
+</div>

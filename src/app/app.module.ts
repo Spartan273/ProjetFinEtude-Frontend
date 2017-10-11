@@ -11,15 +11,16 @@ import {MatButtonModule} from '@angular/material';
 import {MatGridListModule} from '@angular/material';
 import { FormControl } from '@angular/forms';
 
+import { AuthentificationModule } from './authentification/authentification.module';
+import { ProfilModule } from './profil/profil.module';
+
 
 import { AuthService } from './auth.service';
+import { MembreService } from './membre.service';
 
 
 
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { ConnexionComponent } from './connexion/connexion.component';
-import { InscriptionComponent } from './inscription/inscription.component';
 import { ParallaxComponent } from './parallax/parallax.component';
 import { NavbarLoginComponent } from './navbar-login/navbar-login.component';
 import { AccueilComponent } from './accueil/accueil.component';
@@ -27,9 +28,6 @@ import { AccueilComponent } from './accueil/accueil.component';
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    ConnexionComponent,
-    InscriptionComponent,
     ParallaxComponent,
     NavbarLoginComponent,
     AccueilComponent
@@ -37,6 +35,8 @@ import { AccueilComponent } from './accueil/accueil.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    AuthentificationModule,
+    ProfilModule,
     FormsModule,
     HttpModule,
     AppRoutingModule,
@@ -46,7 +46,7 @@ import { AccueilComponent } from './accueil/accueil.component';
     MatGridListModule,
     ReactiveFormsModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, MembreService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

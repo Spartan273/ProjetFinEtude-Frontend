@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 import { FormControl } from '@angular/forms';
-import { AuthService } from '../auth.service';
-import { NavBarService } from '../navBar.service';
+import { AuthService } from '../../auth.service';
+import { NavBarService } from '../../navBar.service';
 
 @Component({
   selector: 'app-connexion',

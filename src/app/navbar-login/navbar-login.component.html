@@ -1,22 +1,23 @@
-<div class="navbar-fixed">
 <nav class="nav-extended  blue">
     <div class="nav-wrapper">
       <a href="#" class="brand-logo center">ShareTul</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a>Bonjour {{prenom}}</a></li>
         <li><a (click)="logout()">Déconnexion</a></li>
-
       </ul>
     </div>
     <div class="nav-content">
       <ul class="tabs tabs-transparent tabs-fixed-width">
-        <li class="tab"><a href="#test1">Mes articles</a></li>
-        <li class="tab"><a class="active" href="#test2">Mes emprunts</a></li>
-        <li class="tab"><a href="#test3">Mon profil</a></li>
-        <li class="tab"><a href="#test4">Contacter</a></li>
+        <li class="tab"><a href="#articles">Mes articles</a></li>
+        <li class="tab"><a class="active" href="#emprunts">Mes emprunts</a></li>
+        <li class="tab"><a href="#profil">Mon profil</a></li>
+        <li class="tab"><a href="#contact">Contacter</a></li>
       </ul>
     </div>
 </nav>
-</div>
 
+<div id="profil" class="col s12"><app-adresse></app-adresse></div>
+<div id="articles" class="col s12">Mes articles</div>
+<div id="emprunts" class="col s12">Mes emprunts</div>
+<div id="contact" class="col s12">Mes contacts</div>
 

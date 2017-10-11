@@ -7,7 +7,7 @@ import {MatGridListModule} from '@angular/material';
 import { FormArray } from '@angular/forms';
 import { FormArrayName } from '@angular/forms';
 import { FormControl } from '@angular/forms';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../../auth.service';
 import { AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
