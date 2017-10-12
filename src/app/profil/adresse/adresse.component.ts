@@ -3,7 +3,7 @@ import { MembreService } from '../../membre.service';
 import { Membre } from '../membre.interface';
 import { Adresse } from '../adresse.interface';
 import { NgForm } from '@angular/forms';
-import {MatSnackBar} from '@angular/material';
+import {MatSnackBar, MatSnackBarConfig} from '@angular/material';
 
 @Component({
   selector: 'app-adresse',
@@ -12,18 +12,18 @@ import {MatSnackBar} from '@angular/material';
 })
 export class AdresseComponent implements OnInit {
 
-  id: number;
+  id = Number(localStorage.getItem('id'));
   membre: Membre;
   step = 0;
 
-  constructor(private membreService: MembreService, public popup: MatSnackBar) { }
+  constructor(private membreService: MembreService, private popup: MatSnackBar) { }
 
   ngOnInit() {
     this.getMembre();
   }
 
   getMembre() {
-    this.membreService.getMembre(72)
+    this.membreService.getMembre(this.id)
     .subscribe(
       (membre: Membre) => this.membre = membre,
       (error: Response) => console.log(error)
@@ -31,10 +31,9 @@ export class AdresseComponent implements OnInit {
   }
 
   submit() {
-    console.log('submit');
+
     console.log(this.membre);
-    // console.log(formProfil.value.nom, formAdresse.value.rue);
-     this.membreService.update(72, this.membre)
+     this.membreService.update(this.id, this.membre)
      .subscribe(
       response => console.log(response),
       error => console.log(error)
@@ -46,6 +45,7 @@ export class AdresseComponent implements OnInit {
   notifModification(message: string, action: string) {
     this.popup.open(message, action, {
       duration: 5000,
+      verticalPosition: 'top'
     });
   }
 

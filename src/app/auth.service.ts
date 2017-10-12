@@ -41,6 +41,7 @@ export class AuthService {
    )
    .do(tokenData => {
      localStorage.setItem('token', tokenData.token);
+     localStorage.setItem('id', tokenData.membre[0].id);
      localStorage.setItem('nom', tokenData.membre[0].nom);
      localStorage.setItem('prenom', tokenData.membre[0].prenom);
      localStorage.setItem('courriel', tokenData.membre[0].courriel);
@@ -53,6 +54,7 @@ export class AuthService {
   // deconnexion
   logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('id');
     localStorage.removeItem('nom');
     localStorage.removeItem('prenom');
     localStorage.removeItem('courriel');

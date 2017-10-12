@@ -17,13 +17,12 @@ export class MembreService {
 
   getMembre(id: number) {
 
-    return this.http.get('http://localhost:8000/api/membres/72')
+    return this.http.get('http://localhost:8000/api/membres/' + id)
     .map(
       (response: Response) => {
         return response.json().membre;
       }
     );
-
   }
 
 

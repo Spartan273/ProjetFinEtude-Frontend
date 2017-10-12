@@ -3,25 +3,6 @@
 
 <h3 class="center">Mon profil</h3>
 
-<!--<table class="centered" *ngIf="membre">
-  <thead>
-    <tr>
-        <th>Nom</th>
-        <th>Prénom</th>
-        <th>Courriel</th>
-        <th>Rue</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td>{{membre.nom}}</td>
-      <td>{{membre.prenom}}</td>
-      <td>{{membre.courriel}}</td>
-      <td>{{membre.adresses.rue}}</td>
-    </tr>
-  </tbody>
-</table>-->
 
 <md-accordion class="example-headers-align">
 <md-expansion-panel *ngIf="membre">
@@ -35,7 +16,7 @@
     </md-panel-description>
   </md-expansion-panel-header>
 
-  <form #profilForm="ngForm">
+  <form>
       <label for="nom">Nom</label>
       <input id="nom" [(ngModel)]="membre.nom" name="nom" #nom="ngModel" type="text">
 
@@ -58,7 +39,7 @@
       </md-panel-description>
     </md-expansion-panel-header>
 
-    <form #adresseForm="ngForm" (ngSubmit)="submit(adresseForm)">
+    <form>
         <label for="noCivic">Numéro civique</label>
         <input id="noCivic" [(ngModel)]="membre.adresses.noCivic" name="noCivic" #noCivic="ngModel" type="text">
 
