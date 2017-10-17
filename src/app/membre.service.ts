@@ -25,6 +25,16 @@ export class MembreService {
     );
   }
 
+  getEmprunts(id: number) {
+
+    return this.http.get('http://localhost:8000/api/emprunts/' + id)
+    .map(
+      (response: Response) => {
+        return response.json().emprunt;
+      }
+    );
+  }
+
 
 
   update(id: number, membre: Membre) {

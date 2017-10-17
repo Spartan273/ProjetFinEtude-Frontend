@@ -7,7 +7,11 @@ import {MatIconModule} from '@angular/material';
 import {MatInputModule} from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material';
-
+import {MatTableModule} from '@angular/material';
+import { CdkTableModule } from '@angular/cdk/table';
+import { ListEmpruntsComponent } from './list-emprunts/list-emprunts.component';
+import {FiltreEmpruntPipe} from './filtre-emprunts.pipe';
+import { DetailEmpruntComponent } from './detail-emprunt/detail-emprunt.component';
 
 
 
@@ -19,9 +23,11 @@ import {MatSnackBarModule} from '@angular/material';
     MatInputModule,
     MatIconModule,
     FormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTableModule,
+    CdkTableModule
   ],
-  exports: [AdresseComponent],
-  declarations: [AdresseComponent]
+  exports: [AdresseComponent, ListEmpruntsComponent],
+  declarations: [AdresseComponent, ListEmpruntsComponent, FiltreEmpruntPipe, DetailEmpruntComponent]
 })
 export class ProfilModule { }

@@ -11,6 +11,9 @@ import {MatButtonModule} from '@angular/material';
 import {MatGridListModule} from '@angular/material';
 import { FormControl } from '@angular/forms';
 
+import {CompatibilityModule} from '@angular/material';
+import {NoConflictStyleCompatibilityMode} from '@angular/material';
+
 import { AuthentificationModule } from './authentification/authentification.module';
 import { ProfilModule } from './profil/profil.module';
 
@@ -35,6 +38,8 @@ import { AccueilComponent } from './accueil/accueil.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    CompatibilityModule,
+    NoConflictStyleCompatibilityMode,
     AuthentificationModule,
     ProfilModule,
     FormsModule,

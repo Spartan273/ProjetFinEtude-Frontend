@@ -1,0 +1,63 @@
+<div class="container">
+
+  <h3 class="center">Mes emprunts</h3>
+
+  <input placeholder="first name" />
+
+  <table class="striped bordered" *ngIf="emprunts && global">
+    <thead>
+      <tr>
+          <th>Numéro</th>
+          <th>Article</th>
+          <th>Date d'Emprunt</th>
+          <th>Date de Retour</th>
+      </tr>
+    </thead>
+
+    <tbody *ngIf="emprunts">
+      <tr *ngFor="let emprunt of emprunts" (click)="selectEmprunt(emprunt)">
+        <td>{{emprunt.id}}</td>
+        <td>{{emprunt.articles.nom}}</td>
+        <td>{{emprunt.dateEmprunt}}</td>
+        <td>{{emprunt.dateRetour}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+
+  <div *ngIf="details" class="row">
+      <div class="col s12 m8 offset-m2">
+          <h2 class="header center">{{ detailEmprunt.articles.nom }}</h2>
+          <div class="card horizontal hoverable">
+            <div class="card-image">
+              <img src="https://www.basketstore.fr/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/n/i/nike_elite_championship.jpg">
+            </div>
+            <div class="card-stacked">
+              <div class="card-content">
+                <table class="bordered striped">
+                  <tbody>
+                    <tr>
+                      <td>Nom</td>
+                      <td><strong>{{ detailEmprunt.articles.nom }}</strong></td>
+                    </tr>
+                    <tr>
+                      <td>Description</td>
+                      <td><strong>{{ detailEmprunt.articles.description }}</strong></td>
+                    </tr>
+                    <tr>
+                      <td>Catégorie</td>
+                      <td><strong>{{ detailEmprunt.articles.categorie }}</strong></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="card-action">
+                <a (click)="goBack()">Retour</a>
+              </div>
+            </div>
+          </div>
+          </div>
+  </div>
+</div>
