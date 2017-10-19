@@ -35,6 +35,15 @@ export class MembreService {
     );
   }
 
+  getArticles() {
+  return this.http.get('http://localhost:8000/api/articles')
+  .map(
+    (response: Response) => {
+      return response.json().articles;
+    }
+    );
+  }
+
 
 
   update(id: number, membre: Membre) {
@@ -49,7 +58,15 @@ export class MembreService {
         return response;
       }
     );
+  }
 
+  getLocation(noCivic: string, rue: string, codePostal: string) {
+    return this.http.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + codePostal + ' ' + rue + ' ' + codePostal + '&key=AIzaSyDkWUVU5cWY0WGY5gMiEqCgLAcH7oqfFGI')
+    .map(
+      (response: Response) => {
+        return response.json().results;
+      }
+    );
 
   }
 

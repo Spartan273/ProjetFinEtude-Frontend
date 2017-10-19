@@ -12,6 +12,10 @@ import { CdkTableModule } from '@angular/cdk/table';
 import { ListEmpruntsComponent } from './list-emprunts/list-emprunts.component';
 import {FiltreEmpruntPipe} from './filtre-emprunts.pipe';
 import { DetailEmpruntComponent } from './detail-emprunt/detail-emprunt.component';
+import { ListArticlesMembresComponent } from './list-articles-membres/list-articles-membres.component';
+import { GoogleMapComponent } from './google-map/google-map.component';
+import { AgmCoreModule } from '@agm/core';
+
 
 
 
@@ -25,9 +29,13 @@ import { DetailEmpruntComponent } from './detail-emprunt/detail-emprunt.componen
     FormsModule,
     MatSnackBarModule,
     MatTableModule,
-    CdkTableModule
+    CdkTableModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCuvZ7GYrN6TOLfWMbGgZ5tw6M6DYexK98'
+    })
   ],
-  exports: [AdresseComponent, ListEmpruntsComponent],
-  declarations: [AdresseComponent, ListEmpruntsComponent, FiltreEmpruntPipe, DetailEmpruntComponent]
+  exports: [AdresseComponent, ListEmpruntsComponent, GoogleMapComponent],
+  declarations: [AdresseComponent, ListEmpruntsComponent, FiltreEmpruntPipe,
+  DetailEmpruntComponent, ListArticlesMembresComponent, GoogleMapComponent]
 })
 export class ProfilModule { }

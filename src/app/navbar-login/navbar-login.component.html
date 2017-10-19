@@ -7,9 +7,9 @@
       </ul>
     </div>
     <div class="nav-content">
-      <ul class="tabs tabs-transparent tabs-fixed-width">
-        <li class="tab"><a href="#articles">Mes articles</a></li>
-        <li class="tab"><a class="active" href="#emprunts">Mes emprunts</a></li>
+      <ul class="tabs tabs-transparent tabs-fixed-width" materialize="tabs">
+        <li class="tab"><a class="active" href="#articles">Mes articles</a></li>
+        <li class="tab"><a href="#emprunts">Mes emprunts</a></li>
         <li class="tab"><a href="#profil">Mon profil</a></li>
         <li class="tab"><a href="#contact">Contacter</a></li>
       </ul>
@@ -17,7 +17,6 @@
 </nav>
 
 <div id="profil" class="col s12"><app-adresse></app-adresse></div>
-<div id="articles" class="col s12">Mes articles</div>
+<div id="articles" class="col s12"><app-google-map></app-google-map></div>
 <div id="emprunts" class="col s12"><app-list-emprunts></app-list-emprunts></div>
 <div id="contact" class="col s12">Mes contacts</div>
-
