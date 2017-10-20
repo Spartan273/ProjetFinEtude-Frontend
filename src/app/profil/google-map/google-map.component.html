@@ -1,24 +1,36 @@
 
+
 <h1 class="center">{{ title }}</h1>
+
+<div class="container">
+<input type="text" placeholder="rechercher" #rechercheInput>
+
+
+<div class="center">
+    <a class="waves-effect waves-light btn" (click)="rechercher(rechercheInput.value)" type="submit"><i class="material-icons right">cloud</i>Par categorie</a>
+    <a class="waves-effect waves-light btn" (click)="displayArticles()"><i class="material-icons right">cloud</i>Rechercher</a>
+</div>
+<br>
 
 <!-- this creates a google map on the page with the given lat/lng from -->
 <!-- the component as the initial center of the map: -->
-<agm-map [latitude]="lat" [longitude]="lng">
+<agm-map *ngIf="markers" [latitude]="lat" [longitude]="lng">
   <agm-marker *ngFor="let marker of markers; let i = index" [latitude]="marker[0].geometry.location.lat" [longitude]="marker[0].geometry.location.lng">
 
-    <agm-info-window>
-      <ul>
-         <li>Article: {{articles[i].nom}}</li>
-          <li>Proprietaire: {{articles[i].membres.nom}}</li>
-          <li>Courriel: {{articles[i].membres.courriel}}</li>
-      </ul>
-    </agm-info-window>
+      <agm-info-window >
+
+                    <ul>
+                        <li><strong>Article: </strong> {{recherche[i].nom}}</li>
+                        <li><strong>Catégorie: </strong>{{recherche[i].categorie}}</li>
+                         <li><strong>Proprietaire: </strong>{{recherche[i].membres.prenom}} {{articles[i].membres.nom}}</li>
+                         <li><strong>Courriel: </strong> {{recherche[i].membres.courriel}}</li>
+                     </ul>
+
+      </agm-info-window>
+
 
   </agm-marker>
 </agm-map>
-
-
-<div class='agm-info-window-content'>
 </div>
-
-<button (click)="displayArticles()">Display</button>
+<br>
+<br>

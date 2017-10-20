@@ -15,6 +15,7 @@ import { DetailEmpruntComponent } from './detail-emprunt/detail-emprunt.componen
 import { ListArticlesMembresComponent } from './list-articles-membres/list-articles-membres.component';
 import { GoogleMapComponent } from './google-map/google-map.component';
 import { AgmCoreModule } from '@agm/core';
+import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 
 
 
@@ -32,8 +33,9 @@ import { AgmCoreModule } from '@agm/core';
     CdkTableModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCuvZ7GYrN6TOLfWMbGgZ5tw6M6DYexK98'
-    })
-  ],
+    }),
+    AgmSnazzyInfoWindowModule
+    ],
   exports: [AdresseComponent, ListEmpruntsComponent, GoogleMapComponent],
   declarations: [AdresseComponent, ListEmpruntsComponent, FiltreEmpruntPipe,
   DetailEmpruntComponent, ListArticlesMembresComponent, GoogleMapComponent]
