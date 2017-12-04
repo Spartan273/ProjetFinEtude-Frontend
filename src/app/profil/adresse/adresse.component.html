@@ -4,17 +4,17 @@
 <h3 class="center">Mon profil</h3>
 
 
-<md-accordion class="example-headers-align">
-<md-expansion-panel *ngIf="membre">
-  <md-expansion-panel-header>
-    <md-panel-title>
+<mat-accordion class="example-headers-align">
+<mat-expansion-panel *ngIf="membre">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
       Renseignements personnels
-    </md-panel-title>
-    <md-panel-description>
+    </mat-panel-title>
+    <mat-panel-description>
       Nom et courriel
       <mat-icon>account_circle</mat-icon>
-    </md-panel-description>
-  </md-expansion-panel-header>
+    </mat-panel-description>
+  </mat-expansion-panel-header>
 
   <form>
       <label for="nom">Nom</label>
@@ -26,18 +26,18 @@
       <label for="courriel">Courriel</label>
       <input id="courriel" [(ngModel)]="membre.courriel" name="courriel" #courriel="ngModel" type="text">
   </form>
-</md-expansion-panel>
+</mat-expansion-panel>
 
-<md-expansion-panel *ngIf="membre">
-    <md-expansion-panel-header>
-      <md-panel-title>
+<mat-expansion-panel *ngIf="membre">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
         Adresse
-      </md-panel-title>
-      <md-panel-description>
+      </mat-panel-title>
+      <mat-panel-description>
         Votre lieu de résidence
         <mat-icon>home_circle</mat-icon>
-      </md-panel-description>
-    </md-expansion-panel-header>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
 
     <form>
         <label for="noCivic">Numéro civique</label>
@@ -61,8 +61,8 @@
 
 
 
-  </md-expansion-panel>
-</md-accordion>
+  </mat-expansion-panel>
+</mat-accordion>
 
   <br>
   <div class="center">

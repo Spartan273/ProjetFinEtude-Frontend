@@ -11,8 +11,8 @@ export class AuthService {
 
   constructor(private http: Http, private router: Router) {}
 
-  singup(prenom: string, nom: string, courriel: string, password: string, noCivic: string,
-  photo: string, app: string, rue: string, codePostal: string, ville: string, province: string ) {
+  singup(prenom: string, nom: string, courriel: string, password: string, photo: string,
+  noCivic: string, app: string, rue: string, codePostal: string, ville: string, province: string ) {
 
   return this.http.post('http://localhost:8000/api/membres/signup', { nom: nom, prenom: prenom, courriel: courriel,
   password: password, photo: photo, noCivic: noCivic, app: app, rue: rue, codePostal: codePostal,
